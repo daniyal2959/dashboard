@@ -1,0 +1,5 @@
+$menu->apps->add('{{LOWER_PLURAL_RESOURCE}}', route('{{LOWER_PLURAL_RESOURCE}}.index'))->data([
+    'permission' => 'read_{{LOWER_PLURAL_RESOURCE}}',
+    'route_check' => '{{LOWER_PLURAL_RESOURCE}}.*'
+]);
+#COMMAND_GENERATED_MENU_ITEM#

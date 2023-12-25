@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'sign_in_with_google' => '',
+    'sign_in_with_apple' => '',
+    'or_with_email' => '',
+    'name' => '',
+    'email' => '',
+    'password' => '',
+    'forgot_password' => '',
+    'sign_in' => '',
+    'not_a_member_yet' => '',
+    'sign_up' => '',
+    'password_description' => '',
+    'repeat_password' => '',
+    'i_agree_with' => '',
+    'terms_and_conditions' => '',
+    'have_account' => '',
+    'forgot_password_description' => '',
+    'send_email' => '',
+    'cancel' => '',
+    'new_password' => '',
+    'new_password_description' => '',
+    'save_password' => '',
+];

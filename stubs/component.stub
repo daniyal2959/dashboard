@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Http\Livewire\{{RESOURCE}};
+
+use App\Models\{{RESOURCE}};
+use Livewire\Component;
+
+class {{RESOURCE}}Modal extends Component
+{
+    public $name;
+
+    public {{RESOURCE}} ${{LOWER_RESOURCE}};
+
+    protected $rules = [
+        'name' => 'required|string',
+    ];
+
+    // This is the list of listeners that this component listens to.
+    protected $listeners = [
+        'modal.show.{{LOWER_RESOURCE}}_id' => 'mount{{RESOURCE}}',
+        'delete_{{LOWER_RESOURCE}}' => 'delete'
+    ];
+
+    public function render()
+    {
+        return view('livewire.{{LOWER_RESOURCE}}.{{LOWER_RESOURCE}}-modal');
+    }
+
+    public function mount{{RESOURCE}}(${{LOWER_RESOURCE}}_id = '')
+    {
+        if (empty(${{LOWER_RESOURCE}}_id)) {
+            // Create new
+            $this->{{LOWER_RESOURCE}} = new {{RESOURCE}};
+            $this->name = '';
+            return;
+        }
+
+        // Get the role by name.
+        ${{LOWER_RESOURCE}} = {{RESOURCE}}::find(${{LOWER_RESOURCE}}_id);
+        if (is_null(${{LOWER_RESOURCE}})) {
+            $this->emit('error', 'The selected {{LOWER_RESOURCE}} [' . ${{LOWER_RESOURCE}}_id . '] is not found');
+            return;
+        }
+
+        $this->{{LOWER_RESOURCE}} = ${{LOWER_RESOURCE}};
+
+        // Set the name and checked permissions properties to the role's values.
+        $this->name = $this->{{LOWER_RESOURCE}}->name;
+    }
+
+    public function submit()
+    {
+        $this->validate();
+
+        $this->{{LOWER_RESOURCE}}->name = strtolower($this->name);
+        if ($this->{{LOWER_RESOURCE}}->isDirty()) {
+            $this->{{LOWER_RESOURCE}}->save();
+        }
+
+        // Emit a success event with a message indicating that the permissions have been updated.
+        $this->emit('success', '{{RESOURCE}} updated');
+    }
+
+    public function delete($id)
+    {
+        ${{LOWER_RESOURCE}} = {{RESOURCE}}::find($id);
+
+        if (!is_null(${{LOWER_RESOURCE}})) {
+            ${{LOWER_RESOURCE}}->delete();
+        }
+
+        $this->emit('success', '{{RESOURCE}} deleted');
+    }
+
+    public function hydrate()
+    {
+        $this->resetErrorBag();
+        $this->resetValidation();
+    }
+}

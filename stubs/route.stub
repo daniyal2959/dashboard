@@ -1,0 +1,2 @@
+Route::resource('/{{LOWER_PLURAL_RESOURCE}}', \App\Http\Controllers\{{RESOURCE}}Controller::class);
+#COMMAND_GENERATED_ROUTES#

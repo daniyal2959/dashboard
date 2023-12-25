@@ -1,0 +1,7 @@
+// Home > Dashboard > {{RESOURCE}}
+Breadcrumbs::for('{{LOWER_PLURAL_RESOURCE}}.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push(trans('dashboard.{{LOWER_PLURAL_RESOURCE}}'), route('{{LOWER_PLURAL_RESOURCE}}.index'));
+});
+
+#COMMAND_GENERATED_BREADCRUMBS#

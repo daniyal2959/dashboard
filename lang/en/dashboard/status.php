@@ -1,0 +1,21 @@
+<?php 
+return [
+	'id' => '',
+	'name' => '',
+	'back_color' => '',
+	'text_color' => '',
+	'result' => '',
+	'created_at' => '',
+	'actions' => '',
+	'search_status' => '',
+	'add_status' => '',
+	'store_status' => '',
+	'update_status' => '',
+	'name_placeholder' => '',
+	'submit' => '',
+	'update' => '',
+	'discard' => '',
+	'please_wait' => '',
+	'solved' => '',
+	'open' => '',
+];
